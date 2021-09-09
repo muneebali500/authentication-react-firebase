@@ -1,0 +1,57 @@
+$color-primary: #14a800;
+$text-secondary-color: rgba(0, 0, 0, 0.45);
+
+.hero {
+  display: flex;
+  align-items: center;
+  height: 88vh;
+
+  &_text_container {
+    width: 60%;
+    // border: 1px solid;
+    h1 {
+      color: $color-primary;
+      font-size: 6.5rem;
+      margin-bottom: 1.2rem;
+    }
+    p {
+      font-size: 2rem;
+      color: rgba(0, 0, 0, 0.5);
+      font-weight: 600;
+    }
+    button {
+      border-radius: 5rem;
+      border: 1px solid $color-primary;
+      padding: 1rem 3rem;
+      outline: none;
+      cursor: pointer;
+      background-color: $color-primary;
+      color: #fff;
+      margin-top: 3rem;
+      margin-bottom: 6rem;
+
+      & + button {
+        background-color: transparent;
+        color: $color-primary;
+        margin-left: 1.5rem;
+      }
+    }
+    .clients_wrapper {
+      h2 {
+        color: $text-secondary-color;
+        margin-bottom: 1rem;
+      }
+      span {
+        font-size: 2rem;
+        margin-right: 2rem;
+        color: $text-secondary-color;
+      }
+    }
+  }
+
+  &_img_container {
+    img {
+      width: 43rem;
+    }
+  }
+}
