@@ -1,4 +1,4 @@
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, useHistory } from "react-router-dom";
 import ContactInfo from "./Dashboard/ContactInfo";
 import TaxInfo from "./Dashboard/TaxInfo";
 import ProfileSettings from "./Dashboard/ProfileSettings";
@@ -6,12 +6,29 @@ import MyTeams from "./Dashboard/MyTeams";
 import ConnectedServices from "./Dashboard/ConnectedServices";
 import UpworkTitle from "../components/UpworkTitle";
 
-import { main, aside } from "../styles/dashboard.module.scss";
+import auth from "../model/firebase";
 
-export default function Dashboard() {
+import { main, aside, logout_btn } from "../styles/dashboard.module.scss";
+
+export default function Dashboard({ setLoggedIn }) {
+  const history = useHistory();
+
+  function logout() {
+    auth
+      .signOut()
+      .then(() => {
+        history.push("/");
+        setLoggedIn(false);
+      })
+      .catch((err) => console.log(err));
+  }
+
   return (
     <>
       <UpworkTitle />
+      <button className={logout_btn} onClick={logout}>
+        Logout
+      </button>
       <main className={main}>
         <aside className={aside}>
           <figure>
@@ -33,19 +50,24 @@ export default function Dashboard() {
             <Link to="/dashboard/connectedServices">
               <li>Connected Services</li>
             </Link>
+            <li>Deactivate Account</li>
           </nav>
         </aside>
         <section>
-          {/* <Switch> */}
-          <Route exact path="/dashboard" component={ContactInfo} />
-          <Route path="/dashboard/taxinfo" component={TaxInfo} />
-          <Route path="/dashboard/settings" component={ProfileSettings} />
-          <Route path="/dashboard/myTeams" component={MyTeams} />
-          <Route
-            path="/dashboard/connectedServices"
-            component={ConnectedServices}
-          />
-          {/* </Switch> */}
+          <Switch>
+            <Route exact path="/dashboard">
+              <ContactInfo title="Contact Information" />
+            </Route>
+            <Route path="/dashboard/taxinfo">
+              <TaxInfo title="Tax Information" />
+            </Route>
+            <Route path="/dashboard/settings" component={ProfileSettings} />
+            <Route path="/dashboard/myTeams" component={MyTeams} />
+            <Route
+              path="/dashboard/connectedServices"
+              component={ConnectedServices}
+            />
+          </Switch>
         </section>
       </main>
     </>

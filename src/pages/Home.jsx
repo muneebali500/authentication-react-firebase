@@ -1,10 +1,10 @@
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 
-export default function Home() {
+export default function Home({ loggedIn }) {
   return (
     <>
-      <Navbar />
+      <Navbar loggedIn={loggedIn} />
       <hr />
       <HeroSection />
     </>

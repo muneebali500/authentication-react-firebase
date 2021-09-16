@@ -19,16 +19,16 @@ export default function HeroSection() {
         <div className={clients_wrapper}>
           <h2>Trusted By</h2>
           <span>
-            <i class="fab fa-microsoft"></i> Microsoft
+            <i className="fab fa-microsoft"></i> Microsoft
           </span>
           <span>
-            <i class="fab fa-airbnb"></i> Airbnb
+            <i className="fab fa-airbnb"></i> Airbnb
           </span>
           <span>
-            <i class="fab fa-amazon"></i> Amazon
+            <i className="fab fa-amazon"></i> Amazon
           </span>
           <span>
-            <i class="fab fa-apple"></i> Apple
+            <i className="fab fa-apple"></i> Apple
           </span>
         </div>
       </div>

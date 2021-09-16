@@ -18,7 +18,7 @@ const {
   drop_icon,
 } = Styles;
 
-export default function Navbar() {
+export default function Navbar({ loggedIn }) {
   const [dropMenu, setDropMenu] = useState(false);
 
   return (
@@ -59,14 +59,20 @@ export default function Navbar() {
           </ul>
         )}
       </form>
-      <div className="buttons">
-        <Link to="/login">
-          <button className={`${btn} ${login_btn}`}>Log In</button>
+      {!loggedIn ? (
+        <div className="buttons">
+          <Link to="/login">
+            <button className={`${btn} ${login_btn}`}>Log In</button>
+          </Link>
+          <Link to="/signup">
+            <button className={`${btn} ${signup_btn}`}>Sign Up</button>
+          </Link>
+        </div>
+      ) : (
+        <Link to="/dashboard">
+          <button className={`${btn} ${signup_btn}`}>Dashboard</button>
         </Link>
-        <Link to="/signup">
-          <button className={`${btn} ${signup_btn}`}>Sign Up</button>
-        </Link>
-      </div>
+      )}
     </nav>
   );
 }
