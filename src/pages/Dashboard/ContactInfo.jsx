@@ -1,6 +1,14 @@
-import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { useGlobalContext } from "../../store/GlobalContext";
+import Alert from "../../components/Alert";
+
 import auth from "../../model/firebase";
-import { onAuthStateChanged, updateProfile, updateEmail } from "@firebase/auth";
+import {
+  updateProfile,
+  updateEmail,
+  sendEmailVerification,
+  onAuthStateChanged,
+} from "@firebase/auth";
 
 import {
   contact,
@@ -9,67 +17,65 @@ import {
 } from "../../styles/contactInfo.module.scss";
 
 export default function ContactInfo({ title }) {
-  const [user, setUser] = useState({});
-  // const [inputValues, setInputValue] = useState(user);
+  const { inputValues, alert, setAlert, handleInputChange } =
+    useGlobalContext();
+  const { fullName, email } = inputValues; // Destructuring of above input  values object
+  const history = useHistory();
 
-  useEffect(() => {
-    console.log(`useEffect called`);
+  console.log(fullName);
 
-    onAuthStateChanged(auth, (userInfo) => {
-      if (userInfo) {
-        setUser(userInfo);
-      }
-    });
-  }, []);
-
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
-  }
-
-  function updateUserProfile(e) {
+  async function updateUserProfile(e) {
     e.preventDefault();
 
-    console.log(user);
+    if (
+      auth.currentUser.email === email &&
+      auth.currentUser.displayName === fullName
+    ) {
+      return setAlert(`Data is already set. No update is needed`);
+    }
 
-    updateProfile(auth.currentUser, {
-      displayName: user.displayName,
-      // emailVerified: user.emailVerified,
-    })
-      .then(() => {
-        alert(`database is updated`);
-      })
-      .catch((err) => console.log(err));
+    try {
+      if (auth.currentUser.email !== email) {
+        await updateEmail(auth.currentUser, email);
+        await sendEmailVerification(auth.currentUser);
+        await setAlert(`Please verify your email address`);
+        history.push(`/login`);
+      }
 
-    updateEmail(auth.currentUser, user.email)
-      .then(() => {
-        alert(`email updated`);
-        // ...
-      })
-      .catch((error) => {
-        alert(error);
-        // ...
-      });
+      if (auth.currentUser.displayName !== fullName) {
+        await updateProfile(auth.currentUser, {
+          displayName: fullName,
+        });
+        setAlert(`Data has been updated`);
+      }
+
+      console.log(auth.currentUser);
+    } catch (err) {
+      setAlert(err.message);
+    }
   }
 
   return (
     <div className={contact}>
+      {alert !== `` && <Alert />}
       <h2 className={contact_title}>{title}</h2>
       <div className={contact_details}>
         <form className="contact_Info_form" onSubmit={updateUserProfile}>
           <input
             type="text"
             className="name"
-            value={user.displayName}
-            name="displayName"
-            onChange={handleChange}
+            // value={fullName}
+            name="fullName"
+            onChange={handleInputChange}
+            defaultValue={auth.currentUser.displayName}
           />
           <input
             type="email"
             className="email"
-            value={user.email}
+            // value={email}
             name="email"
-            onChange={handleChange}
+            onChange={handleInputChange}
+            defaultValue={auth.currentUser.email}
           />
           <button className="update_profile">Update Profile</button>
         </form>

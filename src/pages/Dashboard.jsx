@@ -1,26 +1,30 @@
+import { useGlobalContext } from "../store/GlobalContext";
 import { Switch, Route, Link, useHistory } from "react-router-dom";
+
 import ContactInfo from "./Dashboard/ContactInfo";
 import TaxInfo from "./Dashboard/TaxInfo";
 import ProfileSettings from "./Dashboard/ProfileSettings";
 import MyTeams from "./Dashboard/MyTeams";
 import ConnectedServices from "./Dashboard/ConnectedServices";
+import DeactivateAccount from "./Dashboard/DeactivateAccount";
 import UpworkTitle from "../components/UpworkTitle";
 
 import auth from "../model/firebase";
 
 import { main, aside, logout_btn } from "../styles/dashboard.module.scss";
 
-export default function Dashboard({ setLoggedIn }) {
+export default function Dashboard() {
+  const { setLoggedIn } = useGlobalContext();
   const history = useHistory();
 
-  function logout() {
-    auth
-      .signOut()
-      .then(() => {
-        history.push("/");
-        setLoggedIn(false);
-      })
-      .catch((err) => console.log(err));
+  async function logout() {
+    try {
+      await auth.signOut();
+      history.push(`/`);
+      setLoggedIn(false);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
@@ -50,7 +54,9 @@ export default function Dashboard({ setLoggedIn }) {
             <Link to="/dashboard/connectedServices">
               <li>Connected Services</li>
             </Link>
-            <li>Deactivate Account</li>
+            <Link to="/dashboard/deactivateAccount">
+              <li>Deactivate Account</li>
+            </Link>
           </nav>
         </aside>
         <section>
@@ -67,6 +73,9 @@ export default function Dashboard({ setLoggedIn }) {
               path="/dashboard/connectedServices"
               component={ConnectedServices}
             />
+            <Route path="/dashboard/deactivateAccount">
+              <DeactivateAccount setLoggedIn={setLoggedIn} />
+            </Route>
           </Switch>
         </section>
       </main>

@@ -1,27 +1,20 @@
-import { useState } from "react";
-
-import { login, input_fields } from "../styles/form.module.scss";
-import UpworkTitle from "../components/UpworkTitle";
+import { useGlobalContext } from "../store/GlobalContext";
 import { Link, useHistory } from "react-router-dom";
+import UpworkTitle from "../components/UpworkTitle";
+import Alert from "../components/Alert";
 
+// Import firebase methods
 import auth from "../model/firebase";
 import { signInWithEmailAndPassword } from "@firebase/auth";
 
-const initialValues = {
-  email: ``,
-  password: ``,
-};
+// Import custom styles
+import { login, input_fields } from "../styles/form.module.scss";
 
-export default function Login({ setLoggedIn }) {
-  const [inputValues, setInputValues] = useState(initialValues);
-  const { email, password } = inputValues;
+export default function Login() {
+  const { inputValues, alert, setAlert, handleInputChange, setLoggedIn } =
+    useGlobalContext();
+  const { email, password } = inputValues; // Destructuring above inputValues object
   const history = useHistory();
-
-  function handleChange(e) {
-    const { name, value } = e.target;
-
-    setInputValues({ ...inputValues, [name]: value });
-  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -34,23 +27,26 @@ export default function Login({ setLoggedIn }) {
       );
       const user = await userCredential.user;
       console.log(user);
-      if (user) {
-        setLoggedIn(true);
+
+      if (!user.emailVerified) {
+        return setAlert(
+          `Your email address is not verified. Please verify it.`
+        );
       }
 
-      // if (!user.emailVerified) {
-      //   return alert(`Please verify your email`);
-      // }
-
-      history.push(`/dashboard`);
+      if (user) {
+        setLoggedIn(true);
+        history.push(`/dashboard`);
+      }
     } catch (err) {
-      err.message = `Unauthorized User or There is no account with the User`;
-      alert(err.message);
+      err.message = `Please provide correct data`;
+      setAlert(err.message);
     }
   }
 
   return (
     <>
+      {alert !== `` && <Alert />}
       <UpworkTitle />
       <form className={login} onSubmit={handleSubmit}>
         <h2>Login to Upwork</h2>
@@ -61,7 +57,7 @@ export default function Login({ setLoggedIn }) {
             placeholder="Email Address"
             name="email"
             value={email}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </label>
         <label htmlFor="">
@@ -71,24 +67,24 @@ export default function Login({ setLoggedIn }) {
             placeholder="Enter Password"
             name="password"
             value={password}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </label>
-        <label htmlFor="">
-          <input type="checkbox" />
-          <span style={{ fontSize: `1.2rem` }}>Keep me logged in</span>
+        <label>
+          {/* <input type="checkbox" />
+          <span style={{ fontSize: `1.2rem` }}>Keep me logged in</span> */}
 
-          <Link
-            to="/forgotpassword"
-            style={{ marginLeft: `20rem`, fontSize: `1.2rem` }}
-          >
+          <Link to="/forgotpassword" style={{ fontSize: `1.2rem` }}>
             Forgot Password?
           </Link>
         </label>
 
         <button>Login</button>
         <p>
-          Don't have an account. <Link to="/signup">Signup</Link>
+          Don't have an account.{" "}
+          <Link to="/signup" style={{ textDecoration: "underline" }}>
+            Signup
+          </Link>
         </p>
       </form>
     </>
