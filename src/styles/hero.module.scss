@@ -8,11 +8,20 @@ $text-secondary-color: rgba(0, 0, 0, 0.45);
 
   &_text_container {
     width: 60%;
-    // border: 1px solid;
+
+    @media only screen and (max-width: 48em) {
+      width: 100%;
+      padding: 0 5%;
+    }
+
     h1 {
       color: $color-primary;
       font-size: 6.5rem;
       margin-bottom: 1.2rem;
+
+      @media only screen and (max-width: 23.4375em) {
+        font-size: 4rem;
+      }
     }
     p {
       font-size: 2rem;
@@ -36,6 +45,7 @@ $text-secondary-color: rgba(0, 0, 0, 0.45);
         margin-left: 1.5rem;
       }
     }
+
     .clients_wrapper {
       h2 {
         color: $text-secondary-color;
@@ -45,6 +55,10 @@ $text-secondary-color: rgba(0, 0, 0, 0.45);
         font-size: 2rem;
         margin-right: 2rem;
         color: $text-secondary-color;
+
+        @media only screen and (max-width: 23.4375em) {
+          font-size: 1.5rem;
+        }
       }
     }
   }
@@ -52,6 +66,10 @@ $text-secondary-color: rgba(0, 0, 0, 0.45);
   &_img_container {
     img {
       width: 43rem;
+    }
+
+    @media only screen and (max-width: 48em) {
+      display: none;
     }
   }
 }

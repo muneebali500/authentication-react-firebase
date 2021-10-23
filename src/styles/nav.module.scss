@@ -8,11 +8,33 @@
   .logo {
     color: #14a800;
     font-size: 3rem;
+
+    @media only screen and (max-width: 56.25em) {
+      padding: 4rem;
+    }
   }
 
   .nav_items {
     display: flex;
     list-style-type: none;
+
+    @media only screen and (max-width: 56.25em) {
+      flex-direction: column;
+      background-color: #fff;
+      box-shadow: 1rem 0 1rem rgba(0, 0, 0, 0.1);
+      width: 60vw;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      z-index: 100;
+      padding-top: 1%;
+    }
+  }
+
+  .nav_icon {
+    position: relative;
+    z-index: 1000;
   }
 
   .nav_item {
@@ -20,10 +42,48 @@
     margin: 0 1rem;
     color: rgba(0, 0, 0, 0.5);
     font-weight: 600;
+
+    @media only screen and (max-width: 56.25em) {
+      padding: 2rem 1rem;
+      transition: 0.3s ease;
+
+      &:hover {
+        background-color: #14a800;
+        color: #fff;
+      }
+    }
+  }
+
+  .search_icon {
+    position: absolute;
+    right: 26%;
+    z-index: 2;
+    font-size: 1.5rem;
+    background-color: #28422542;
+    padding: 1rem;
+    color: #14a800;
+    border-radius: 5rem;
+    cursor: pointer;
+    display: none;
+
+    @media only screen and (max-width: 75em) {
+      display: inline-block;
+    }
+
+    @media only screen and (max-width: 23.4375em) {
+      right: 45%;
+    }
   }
 
   .search_box {
     position: relative;
+
+    @media only screen and (max-width: 75em) {
+      position: absolute;
+      top: 7.6rem;
+      right: 26%;
+    }
+
     input {
       font-size: 1.5rem;
       padding: 1rem 1rem 1rem 4rem;
@@ -104,5 +164,31 @@
     border-radius: 5rem;
     color: #fff;
     margin-left: 2.5rem;
+  }
+}
+
+.nav_btn_close {
+  padding: 2rem;
+  font-size: 3rem;
+  z-index: 10000;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  display: none;
+
+  @media only screen and (max-width: 56.25em) {
+    display: block;
+  }
+}
+
+.nav_btn_open {
+  position: absolute;
+  font-size: 3rem;
+  color: #14a800;
+  cursor: pointer;
+  display: none;
+  z-index: 100;
+
+  @media only screen and (max-width: 56.25em) {
+    display: block;
   }
 }

@@ -3,7 +3,6 @@ import { Switch, Route, Link, useHistory } from "react-router-dom";
 
 import ContactInfo from "./Dashboard/ContactInfo";
 import TaxInfo from "./Dashboard/TaxInfo";
-import ProfileSettings from "./Dashboard/ProfileSettings";
 import MyTeams from "./Dashboard/MyTeams";
 import ConnectedServices from "./Dashboard/ConnectedServices";
 import DeactivateAccount from "./Dashboard/DeactivateAccount";
@@ -35,18 +34,15 @@ export default function Dashboard() {
       </button>
       <main className={main}>
         <aside className={aside}>
-          <figure>
+          {/* <figure>
             <img src="" alt="" />
-          </figure>
-          <nav className="nav-items">
+          </figure> */}
+          <nav>
             <Link to="/dashboard">
               <li>Contact Info</li>
             </Link>
             <Link to="/dashboard/taxinfo">
-              <li>Tax Information</li>
-            </Link>
-            <Link to="/dashboard/settings">
-              <li>Profile Settings</li>
+              <li>Tax Info</li>
             </Link>
             <Link to="/dashboard/myTeams">
               <li>My Teams</li>
@@ -59,6 +55,7 @@ export default function Dashboard() {
             </Link>
           </nav>
         </aside>
+
         <section>
           <Switch>
             <Route exact path="/dashboard">
@@ -67,14 +64,17 @@ export default function Dashboard() {
             <Route path="/dashboard/taxinfo">
               <TaxInfo title="Tax Information" />
             </Route>
-            <Route path="/dashboard/settings" component={ProfileSettings} />
-            <Route path="/dashboard/myTeams" component={MyTeams} />
-            <Route
-              path="/dashboard/connectedServices"
-              component={ConnectedServices}
-            />
+            <Route path="/dashboard/myTeams">
+              <MyTeams title="My Teams" />
+            </Route>
+            <Route path="/dashboard/connectedServices">
+              <ConnectedServices title="Connected Services" />
+            </Route>
             <Route path="/dashboard/deactivateAccount">
-              <DeactivateAccount setLoggedIn={setLoggedIn} />
+              <DeactivateAccount
+                title="Deactivate Account"
+                setLoggedIn={setLoggedIn}
+              />
             </Route>
           </Switch>
         </section>

@@ -45,7 +45,9 @@ export default function Signup() {
 
       // firebase function that sends verification email when user signup
       await sendEmailVerification(auth.currentUser);
-      await setAlert(`Please verify your email address`);
+      await setAlert(
+        `A verification link has been sent to your email addres. Please verify it`
+      );
       history.push(`/login`);
       console.log(auth.currentUser);
     } catch {

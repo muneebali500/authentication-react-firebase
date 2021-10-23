@@ -1,25 +1,29 @@
 import { useGlobalContext } from "../store/GlobalContext";
 import { Link } from "react-router-dom";
 
-// import custom components
+////////////////////// import custom components
 import UpworkTitle from "../components/UpworkTitle";
 import Alert from "../components/Alert";
 
-// import firebase methods
+///////////////////// import firebase methods
 import auth from "../model/firebase";
 import { sendPasswordResetEmail } from "@firebase/auth";
 
-// import custom styles
+//////////////////// import custom styles
 import { forgot_pswd, input_fields } from "../styles/form.module.scss";
 
+/*-------------------------------------------- Start of Main Component --------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------------------*/
 export default function ForgotPassword() {
   const { inputValues, alert, setAlert, handleInputChange } =
     useGlobalContext();
 
+  ////////////////////// Custom function deals with the form submission
   async function handleSubmit(e) {
     e.preventDefault();
 
     try {
+      ////////////////// firebase function to send the password reset email
       await sendPasswordResetEmail(auth, inputValues.email);
       setAlert("Password reset email sent. Please reset your password");
     } catch {
@@ -27,6 +31,8 @@ export default function ForgotPassword() {
     }
   }
 
+  /*----------------------------------------------- START OF DOM --------------------------------------------*/
+  /*---------------------------------------------------------------------------------------------------------*/
   return (
     <>
       {alert !== `` && <Alert />}

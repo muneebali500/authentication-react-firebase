@@ -1,0 +1,45 @@
+.footer {
+  background-color: #001e00;
+  width: 100%;
+  padding: 5rem 5rem;
+}
+
+.nav_items {
+  h3 {
+    color: #fff;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  ul {
+    list-style-type: none;
+    border-bottom: 1px solid #fff;
+    margin: 2rem 0;
+    li {
+      margin: 1rem 0;
+      a {
+        color: #fff;
+        font-size: 1.4rem;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.nav_btn {
+  background-color: transparent;
+  display: inline-block;
+  color: #fff;
+  transition: 0.5s ease;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav_btn_rotate {
+  transform: rotate(-180deg);
+}
