@@ -14,25 +14,11 @@ html {
   html {
     font-size: 58%;
   }
-
-  body {
-    padding: 0 1rem;
-  }
 }
 
 @media only screen and (max-width: 48em) {
   html {
     font-size: 55%;
-  }
-}
-
-body {
-  padding: 0 10%;
-}
-
-@media only screen and (max-width: 75em) {
-  body {
-    padding: 0 calc(10% - 3rem);
   }
 }
 
@@ -61,4 +47,19 @@ a {
   font-size: 1.5rem;
   border-radius: 0 0 5px 5px;
   background-color: #14a800;
+}
+
+.upwork-title {
+  font-size: 3rem;
+  padding: 1.5rem 0;
+  color: #14a800;
+  border-bottom: 1px solid #14a800;
+  margin-bottom: 3.5rem;
+  margin: 0 10% 3.5rem;
+}
+
+@media only screen and (max-width: 34.375em) {
+  .upwork-title {
+    margin: 0rem 1rem 3rem;
+  }
 }

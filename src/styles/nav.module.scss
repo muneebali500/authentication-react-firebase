@@ -1,9 +1,18 @@
 .nav {
-  //   border: 1px solid;
   height: 12vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 10%;
+  border-bottom: 1px solid #14a800;
+
+  @media only screen and (max-width: 75em) {
+    margin: 0 calc(10% - 3rem);
+  }
+
+  @media only screen and (max-width: 56.25em) {
+    margin: 0 1rem;
+  }
 
   .logo {
     color: #14a800;
@@ -55,24 +64,22 @@
   }
 
   .search_icon {
-    position: absolute;
-    right: 26%;
-    z-index: 2;
     font-size: 1.5rem;
     background-color: #28422542;
     padding: 1rem;
     color: #14a800;
     border-radius: 5rem;
     cursor: pointer;
+    margin-right: 2rem;
     display: none;
 
     @media only screen and (max-width: 75em) {
       display: inline-block;
     }
 
-    @media only screen and (max-width: 23.4375em) {
-      right: 45%;
-    }
+    // @media only screen and (max-width: 48em) {
+    //   right: 45%;
+    // }
   }
 
   .search_box {
@@ -81,7 +88,7 @@
     @media only screen and (max-width: 75em) {
       position: absolute;
       top: 7.6rem;
-      right: 26%;
+      right: 23%;
     }
 
     input {

@@ -1,0 +1,94 @@
+.clients {
+  padding: 0 10%;
+
+  @media only screen and (max-width: 75em) {
+    width: 100%;
+    padding: 0 calc(10% - 3rem);
+  }
+
+  @media only screen and (max-width: 56.25em) {
+    padding: 0;
+  }
+}
+
+.container {
+  padding: 3rem;
+  background-color: #000;
+  display: grid;
+  grid-template-rows: repeat(4, minmax(13rem, max-content));
+  background-image: url(https://ychef.files.bbci.co.uk/976x549/p0982k70.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 3px;
+
+  h3 {
+    color: #fff;
+    font-size: 2rem;
+  }
+
+  h1 {
+    color: #fff;
+    font-size: 4.5rem;
+    width: 30rem;
+  }
+
+  p {
+    color: #fff;
+    font-size: 1.5rem;
+    width: 32rem;
+    align-self: flex-start;
+  }
+
+  div.links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2%;
+    margin-top: -5rem;
+
+    a.link {
+      background-color: #14a800;
+      height: 16rem;
+      flex: 1;
+      border-radius: 5px;
+      display: grid;
+      padding: 1.2rem 3rem 1.2rem 1.5rem;
+      font-weight: 600;
+
+      @media only screen and (max-width: 75em) {
+        width: 30%;
+      }
+
+      @media only screen and (max-width: 43.75em) {
+        flex-basis: 40%;
+
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+      }
+
+      @media only screen and (max-width: 31.25em) {
+        flex-basis: 100%;
+      }
+
+      &:hover {
+        background-color: #106b03;
+      }
+
+      span:nth-child(1) {
+        font-size: 2.9rem;
+        color: #fff;
+      }
+
+      span:nth-child(2) {
+        align-self: flex-end;
+        font-size: 1.7rem;
+        color: #fff;
+
+        sup {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

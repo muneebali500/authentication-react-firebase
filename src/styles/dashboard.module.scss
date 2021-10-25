@@ -1,9 +1,14 @@
 main {
   height: 100vh;
   display: flex;
+  margin: 0 10%;
 
   @media only screen and (max-width: 56.25em) {
     display: block;
+  }
+
+  @media only screen and (max-width: 34.375em) {
+    margin: 0 1rem;
   }
 }
 
@@ -65,10 +70,10 @@ aside {
   border-radius: 5rem;
 
   @media only screen and (max-width: 56.25em) {
-    right: 6vw;
+    right: 10vw;
   }
 
-  @media only screen and (max-width: 23.4375em) {
+  @media only screen and (max-width: 34.375em) {
     right: 3vw;
   }
 }

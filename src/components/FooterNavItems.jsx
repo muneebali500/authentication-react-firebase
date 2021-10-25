@@ -23,7 +23,7 @@ export default function FooterNavItems({ title, links }) {
       <ul>
         {links.map((link, index) => {
           return (
-            footerNavLinks && (
+            (window.innerWidth >= 768 || footerNavLinks) && (
               <li key={index}>
                 <a href="/">{link}</a>
               </li>

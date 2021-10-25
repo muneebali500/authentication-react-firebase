@@ -57,12 +57,6 @@ export default function Navbar({ loggedIn }) {
         </ul>
       )}
 
-      {/*---------------------- search icon appears on large screen i.e; screen >= 1200px  */}
-      <i
-        className={`fas fa-search ${search_icon}`}
-        onClick={() => setSearchBox(!searchBox)}
-      ></i>
-
       {/*------------- Search box appear and disappear according to window width and state ----------------*/}
       {(window.innerWidth >= 1200 || !searchBox) && (
         <form className={search_box}>
@@ -97,6 +91,10 @@ export default function Navbar({ loggedIn }) {
       {/*-------- DOM displays sing up and log in buttons and if the user is logged in, dashbooard button appears -------  */}
       {!loggedIn ? (
         <div className="buttons">
+          <i
+            className={`fas fa-search ${search_icon}`}
+            onClick={() => setSearchBox(!searchBox)}
+          ></i>
           <Link to="/login">
             <button className={`${btn} ${login_btn}`}>Log In</button>
           </Link>
