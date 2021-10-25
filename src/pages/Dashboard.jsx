@@ -1,37 +1,49 @@
 import { useGlobalContext } from "../store/GlobalContext";
 import { Switch, Route, Link, useHistory } from "react-router-dom";
 
+////////////////////// import custom components
 import ContactInfo from "./Dashboard/ContactInfo";
 import TaxInfo from "./Dashboard/TaxInfo";
 import MyTeams from "./Dashboard/MyTeams";
 import ConnectedServices from "./Dashboard/ConnectedServices";
 import DeactivateAccount from "./Dashboard/DeactivateAccount";
 import UpworkTitle from "../components/UpworkTitle";
+import Alert from "../components/Alert";
 
+///////////////////// import firebase methods
 import auth from "../model/firebase";
 
+//////////////////// import custom styles
 import { main, aside, logout_btn } from "../styles/dashboard.module.scss";
 
+/*-------------------------------------------- Start of Main Component --------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------------------*/
 export default function Dashboard() {
-  const { setLoggedIn } = useGlobalContext();
+  const { setLoggedIn, alert, setAlert } = useGlobalContext();
   const history = useHistory();
 
+  ////////////////////////// Logout function
   async function logout() {
     try {
       await auth.signOut();
       history.push(`/`);
       setLoggedIn(false);
-    } catch (err) {
-      console.log(err);
+    } catch {
+      setAlert(`Can not logout currently, please try again`);
     }
   }
 
+  /*----------------------------------------------- START OF DOM --------------------------------------------*/
+  /*---------------------------------------------------------------------------------------------------------*/
   return (
     <>
+      {alert !== `` && <Alert />}
       <UpworkTitle />
       <button className={logout_btn} onClick={logout}>
         Logout
       </button>
+
+      {/*//////////////////////////// Navigation links  */}
       <main className={main}>
         <aside className={aside}>
           {/* <figure>
@@ -56,6 +68,7 @@ export default function Dashboard() {
           </nav>
         </aside>
 
+        {/*//////////////////////////////////// dashboard navigation routes  */}
         <section>
           <Switch>
             <Route exact path="/dashboard">

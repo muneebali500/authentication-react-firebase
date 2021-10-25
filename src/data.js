@@ -52,3 +52,26 @@ export const footerNav = [
     ],
   },
 ];
+
+export const footerSocialLinks = [
+  {
+    id: 1,
+    website: "https://www.linkedin.com/",
+    icon: "fab fa-linkedin-in",
+  },
+  {
+    id: 2,
+    website: "https://www.facebook.com/",
+    icon: "fab fa-facebook-f",
+  },
+  {
+    id: 3,
+    website: "https://www.twiiter.com/",
+    icon: "fab fa-twitter",
+  },
+  {
+    id: 4,
+    website: "https://www.instagram.com/",
+    icon: "fab fa-instagram",
+  },
+];

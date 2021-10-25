@@ -20,17 +20,19 @@ export default function FooterNavItems({ title, links }) {
           &or;
         </button>
       </h3>
-      <ul>
-        {links.map((link, index) => {
-          return (
-            (window.innerWidth >= 768 || footerNavLinks) && (
+
+      {/*/////////// the footer nav items shall display if window width >= '768px' on large screens OR if the user cliked on footer nav button on small screens */}
+      {(window.innerWidth >= 768 || footerNavLinks) && (
+        <ul>
+          {links.map((link, index) => {
+            return (
               <li key={index}>
                 <a href="/">{link}</a>
               </li>
-            )
-          );
-        })}
-      </ul>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }

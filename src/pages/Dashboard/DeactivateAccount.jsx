@@ -6,12 +6,16 @@ import auth from "../../model/firebase";
 import { deleteUser } from "@firebase/auth";
 
 /////////////// import custom styling
-import { page_title, page_details } from "../../styles/dashboard.module.scss";
+import {
+  page_title,
+  page_details,
+  deactivateBtn,
+} from "../../styles/dashboard.module.scss";
 
 /*-------------------------------------------- Start of Main Component --------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------------------------*/
 export default function DeactivateAccount({ title }) {
-  const { setLoggedIn, setAlert } = useGlobalContext();
+  const { setLoggedIn, setAlert, setIsAccountDeactivated } = useGlobalContext();
   const history = useHistory();
 
   ////////////////////////// function to delete the user
@@ -22,8 +26,8 @@ export default function DeactivateAccount({ title }) {
       ////////////////////// firebase function to delete user account
       await deleteUser(user);
       setLoggedIn(false);
-      window.alert(`Your account has been deleted`);
-      history.push(`/`);
+      setIsAccountDeactivated(true);
+      history.push(`/deactivate`);
     } catch {
       setAlert(
         `There is some issue with Account Deletion. Please come back later.`
@@ -40,22 +44,10 @@ export default function DeactivateAccount({ title }) {
         <h2 style={{ color: `rgba(0,0,0,0.7)` }}>
           Are you sure, you want to deactivate your account?
         </h2>
-        <button style={styleBtn} onClick={deleteCurrentUser}>
+        <button className={deactivateBtn} onClick={deleteCurrentUser}>
           Delete Account
         </button>
       </section>
     </div>
   );
 }
-
-const styleBtn = {
-  fonstSize: `1.5rem`,
-  padding: `1.4rem 3rem`,
-  color: `#ffffff`,
-  backgroundColor: `#14a800`,
-  border: `none`,
-  outline: `none`,
-  cursor: `pointer`,
-  borderRadius: `5rem`,
-  marginTop: `1.5rem`,
-};

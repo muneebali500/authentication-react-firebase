@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { useGlobalContext } from "./store/GlobalContext";
 
 import Home from "./pages/Home";
@@ -6,12 +5,13 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import Dashboard from "./pages/Dashboard";
+import Deactivate from "./pages/Deactivate";
+import Error404 from "./pages/Error404";
 
 import { Switch, Route, Redirect } from "react-router-dom";
 
 function App() {
-  const { loggedIn } = useGlobalContext();
-  // console.log(loggedIn);
+  const { loggedIn, isAccountdeactivated } = useGlobalContext();
 
   return (
     <>
@@ -23,6 +23,10 @@ function App() {
         <Route path="/dashboard">
           {loggedIn ? <Dashboard /> : <Redirect to="/" />}
         </Route>
+        <Route path="/deactivate">
+          {isAccountdeactivated ? <Deactivate /> : <Redirect to="/" />}
+        </Route>
+        <Route path="" component={Error404} />
       </Switch>
     </>
   );

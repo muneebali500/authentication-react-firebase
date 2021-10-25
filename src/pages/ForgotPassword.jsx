@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 ////////////////////// import custom components
 import UpworkTitle from "../components/UpworkTitle";
 import Alert from "../components/Alert";
+import Loading from "../components/Loading";
 
 ///////////////////// import firebase methods
 import auth from "../model/firebase";
@@ -15,20 +16,29 @@ import { forgot_pswd, input_fields } from "../styles/form.module.scss";
 /*-------------------------------------------- Start of Main Component --------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------------------------*/
 export default function ForgotPassword() {
-  const { inputValues, alert, setAlert, handleInputChange } =
-    useGlobalContext();
+  const {
+    inputValues,
+    alert,
+    setAlert,
+    handleInputChange,
+    isLoading,
+    setIsLoading,
+  } = useGlobalContext();
 
   ////////////////////// Custom function deals with the form submission
   async function handleSubmit(e) {
     e.preventDefault();
 
     try {
+      setIsLoading(true);
       ////////////////// firebase function to send the password reset email
       await sendPasswordResetEmail(auth, inputValues.email);
       setAlert("Password reset email sent. Please reset your password");
     } catch {
       setAlert(`Please provide correct email address`);
     }
+
+    setIsLoading(false);
   }
 
   /*----------------------------------------------- START OF DOM --------------------------------------------*/
@@ -51,7 +61,7 @@ export default function ForgotPassword() {
           />
         </label>
 
-        <button>Send Email</button>
+        <button>{isLoading ? <Loading /> : `Send Email`}</button>
         <p>
           Back to{" "}
           <Link to="/login" style={{ textDecoration: "underline" }}>

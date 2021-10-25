@@ -1,6 +1,7 @@
 import { useHistory } from "react-router-dom";
 import { useGlobalContext } from "../../store/GlobalContext";
 import Alert from "../../components/Alert";
+import Loading from "../../components/Loading";
 
 ////////////////////// import firebase functions
 import auth from "../../model/firebase";
@@ -20,8 +21,14 @@ import {
 /*-------------------------------------------- Start of Main Component --------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------------------------*/
 export default function ContactInfo({ title }) {
-  const { inputValues, alert, setAlert, handleInputChange } =
-    useGlobalContext();
+  const {
+    inputValues,
+    alert,
+    setAlert,
+    handleInputChange,
+    isLoading,
+    setIsLoading,
+  } = useGlobalContext();
   const { fullName, email } = inputValues; // Destructuring of above input  values object
   const history = useHistory();
 
@@ -39,11 +46,14 @@ export default function ContactInfo({ title }) {
     }
 
     try {
+      setIsLoading(true);
       ///////////////////////// firebase functions to update email and send email verification mail to new address of the user
       if (auth.currentUser.email !== email) {
         await updateEmail(auth.currentUser, email);
         await sendEmailVerification(auth.currentUser);
-        await setAlert(`Please verify your email address`);
+        await setAlert(
+          `An email verification has been sent to your email id. Please verify it`
+        );
         history.push(`/login`);
       }
 
@@ -54,11 +64,19 @@ export default function ContactInfo({ title }) {
         });
         setAlert(`Data has been updated`);
       }
-
-      console.log(auth.currentUser);
     } catch (err) {
-      setAlert(err.message);
+      ////////////////////////// Firebase doesn't allow to update email, password if the user is looged in too long and throws an error. To deal with that error, following condition is applied
+      if (err.message === `Firebase: Error (auth/requires-recent-login).`) {
+        await setAlert(`Your login token has expired. Please login again`);
+        history.push("/login");
+      } else {
+        setAlert(
+          `This email already exists. Please enter different email address`
+        );
+      }
     }
+
+    setIsLoading(false);
   }
 
   /*----------------------------------------------- START OF DOM --------------------------------------------*/
@@ -83,7 +101,9 @@ export default function ContactInfo({ title }) {
             onChange={handleInputChange}
             defaultValue={auth.currentUser.email}
           />
-          <button className="update_profile">Update Profile</button>
+          <button className="update_profile">
+            {isLoading ? <Loading /> : `Update Profile`}
+          </button>
         </form>
       </div>
     </div>

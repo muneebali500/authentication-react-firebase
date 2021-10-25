@@ -82,6 +82,7 @@ section {
   flex-grow: 1;
 }
 
+// generic styling for every nav title and nav details
 .page_title {
   font-size: 2.5rem;
   color: #14a800;
@@ -96,4 +97,22 @@ section {
     -0.3rem -0.3rem 0.3rem rgba(0, 0, 0, 0.2);
   min-height: 50vh;
   padding: 3rem;
+}
+
+// styling for deactivate button
+.deactivateBtn {
+  font-size: 1.5rem;
+  padding: 1.4rem 3rem;
+  color: #ffffff;
+  background-color: #14a800;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5rem;
+  margin-top: 1.5rem;
+  transition: 0.3s ease;
+
+  &:active {
+    transform: scale(0.7);
+  }
 }

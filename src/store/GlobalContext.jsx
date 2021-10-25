@@ -13,6 +13,8 @@ export default function AuthProvider({ children }) {
   const [inputValues, setInputValues] = useState(initialValues);
   const [alert, setAlert] = useState(``);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [isAccountDeactivated, setIsAccountDeactivated] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   // hook called and displays alert message for 3.5 seconds and unamounts
   useEffect(() => {
@@ -40,6 +42,10 @@ export default function AuthProvider({ children }) {
         handleInputChange,
         loggedIn,
         setLoggedIn,
+        isLoading,
+        setIsLoading,
+        isAccountDeactivated,
+        setIsAccountDeactivated,
       }}
     >
       {children}

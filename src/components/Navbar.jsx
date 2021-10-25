@@ -57,7 +57,7 @@ export default function Navbar({ loggedIn }) {
         </ul>
       )}
 
-      {/*------------- Search box appear and disappear according to window width and state ----------------*/}
+      {/*------------- Search box appear on screens >= 1200px and will appear only if clicked on search icon on < 1200px screens ----------------*/}
       {(window.innerWidth >= 1200 || !searchBox) && (
         <form className={search_box}>
           <i className={`fas fa-search ${drop_icon}`}></i>
