@@ -1,1 +1,1 @@
-# User Authentication & Authorization - React & Firebase (Fully Responsive)
+# User Authentication & Authorization - React & Firebase (Upwork UI)
