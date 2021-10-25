@@ -11,7 +11,7 @@ import Error404 from "./pages/Error404";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 function App() {
-  const { loggedIn, isAccountdeactivated } = useGlobalContext();
+  const { loggedIn, isAccountDeactivated } = useGlobalContext();
 
   return (
     <>
@@ -24,7 +24,7 @@ function App() {
           {loggedIn ? <Dashboard /> : <Redirect to="/" />}
         </Route>
         <Route path="/deactivate">
-          {isAccountdeactivated ? <Deactivate /> : <Redirect to="/" />}
+          {isAccountDeactivated ? <Deactivate /> : <Redirect to="/" />}
         </Route>
         <Route path="" component={Error404} />
       </Switch>

@@ -4,7 +4,7 @@
 
 This is a project about user authentication & authorization i.e; when the user visits a website, normally he is been prompted to register and login to use certain facilities that are not available to unauthenticated users. The project demonstrates the cycle from being signed up, verifying email, logging in, using the dashboard, updating the profile, resetting the password, logout, and deactivating the account. I have used Upwork UI to give this project a real-world feel.
 
-[Link to Live Project]()
+[Link to Live Project](https://authentication-react-dea81.web.app/)
 
 ![Upwork UI Home Page](/public/user-auth.png)
 
@@ -75,7 +75,7 @@ The project was deployed to GitHub Pages following these steps:
 2. On the "create a new repository" page, enter repository name in the "Repository name" box and hit the "Create repository" button at the end
 3. Create a new repository on the command line/VS code terminal in the root of the project folder using the following command lines.
    - git init
-   - git add.
+   - git add .
    - git commit -m "write your comment here within quotes"
    - git branch -M main
    - git remote add origin {enter URL of your repository here without brackets}
