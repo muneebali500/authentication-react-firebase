@@ -16,11 +16,11 @@ export default function AuthProvider({ children }) {
   const [isAccountDeactivated, setIsAccountDeactivated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  // hook called and displays alert message for 3.5 seconds and unamounts
+  // hook called and displays alert message for 5 seconds and unamounts
   useEffect(() => {
     const timeOut = setTimeout(() => {
       setAlert(``);
-    }, 3500);
+    }, 5000);
 
     return () => {
       clearTimeout(timeOut);

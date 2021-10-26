@@ -4,7 +4,7 @@
 
 This is a project about user authentication & authorization i.e; when the user visits a website, normally he is been prompted to register and login to use certain facilities that are not available to unauthenticated users. The project demonstrates the cycle from being signed up, verifying email, logging in, using the dashboard, updating the profile, resetting the password, logout, and deactivating the account. I have used Upwork UI to give this project a real-world feel.
 
-[Link to Live Project](https://authentication-react-dea81.web.app/)
+[Link to Live Project](https://userauthentication-49eec.web.app)
 
 ![Upwork UI Home Page](/public/user-auth.png)
 
@@ -93,4 +93,4 @@ For a web application, the default behavior of Firebase is to persist a user's s
 
 ### Credits
 
-Online articles, tutorials for providing the understanding of the logic & philosophy behind user authentication and authorization. Also, Upwork for being the guide for my project UI.
+Online textual and video tutorials for providing the understanding of the logic & philosophy behind user authentication and authorization. Also, Upwork for being the guide for my project UI.

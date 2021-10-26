@@ -86,7 +86,7 @@ export default function Signup() {
           onChange={handleInputChange}
           className={input_fields}
           type="text"
-          placeholder="Full Name - Letters & Spaces Only"
+          placeholder="Enter Name - Letters & Spaces Only"
           name="fullName"
           value={fullName}
           pattern="^[a-zA-Z]+(?:\s+[a-zA-Z]+)*$"
@@ -97,7 +97,7 @@ export default function Signup() {
           onChange={handleInputChange}
           className={input_fields}
           type="email"
-          placeholder="Email Address - Valid Email Only"
+          placeholder="Enter Email - Valid Email Only"
           name="email"
           value={email}
           required

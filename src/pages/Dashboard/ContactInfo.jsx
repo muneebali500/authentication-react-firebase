@@ -47,6 +47,14 @@ export default function ContactInfo({ title }) {
 
     try {
       setIsLoading(true);
+      //////////////////////////// firebase function to update the name of the user
+      if (auth.currentUser.displayName !== fullName) {
+        await updateProfile(auth.currentUser, {
+          displayName: fullName,
+        });
+        setAlert(`Data has been updated`);
+      }
+
       ///////////////////////// firebase functions to update email and send email verification mail to new address of the user
       if (auth.currentUser.email !== email) {
         await updateEmail(auth.currentUser, email);
@@ -55,14 +63,6 @@ export default function ContactInfo({ title }) {
           `An email verification has been sent to your email id. Please verify it`
         );
         history.push(`/login`);
-      }
-
-      //////////////////////////// firebase function to update the name of the user
-      if (auth.currentUser.displayName !== fullName) {
-        await updateProfile(auth.currentUser, {
-          displayName: fullName,
-        });
-        setAlert(`Data has been updated`);
       }
     } catch (err) {
       ////////////////////////// Firebase doesn't allow to update email, password if the user is looged in too long and throws an error. To deal with that error, following condition is applied

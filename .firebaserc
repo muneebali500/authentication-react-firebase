@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "authentication-react-dea81"
-  }
+    "default": "userauthentication-49eec",
+    "staging": "userauthentication-49eec",
+    "production": "userauthentication-49eec",
+    "production default": "userauthentication-49eec"
+  },
+  "targets": {}
 }
