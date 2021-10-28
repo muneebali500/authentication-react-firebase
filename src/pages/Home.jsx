@@ -6,11 +6,11 @@ import Footer from "../components/Footer";
 import Clients from "../components/Clients";
 
 export default function Home() {
-  const { loggedIn } = useGlobalContext();
+  const { isLoggedIn } = useGlobalContext();
 
   return (
     <>
-      <Navbar loggedIn={loggedIn} />
+      <Navbar isLoggedIn={isLoggedIn} />
       <HeroSection />
       <Clients />
       <Footer />

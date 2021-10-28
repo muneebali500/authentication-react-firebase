@@ -15,23 +15,26 @@ import {
 /*-------------------------------------------- Start of Main Component --------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------------------------*/
 export default function DeactivateAccount({ title }) {
-  const { setLoggedIn, setAlert, setIsAccountDeactivated } = useGlobalContext();
+  const { setIsLoggedIn, setAlert, setIsAccountDeactivated } =
+    useGlobalContext();
   const history = useHistory();
 
   ////////////////////////// function to delete the user
   async function deleteCurrentUser(e) {
     const user = auth.currentUser;
+    console.log(user);
 
     try {
       ////////////////////// firebase function to delete user account
       await deleteUser(user);
-      setLoggedIn(false);
       setIsAccountDeactivated(true);
       history.push(`/deactivate`);
-    } catch {
-      setAlert(
-        `There is some issue with Account Deletion. Please come back later.`
-      );
+      setIsLoggedIn(false);
+    } catch (err) {
+      if (err.message === `Firebase: Error (auth/requires-recent-login).`)
+        setAlert(
+          `The process requires recent login. Please login again and deactivate your account.`
+        );
     }
   }
 

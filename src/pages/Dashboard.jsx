@@ -9,6 +9,7 @@ import ConnectedServices from "./Dashboard/ConnectedServices";
 import DeactivateAccount from "./Dashboard/DeactivateAccount";
 import UpworkTitle from "../components/UpworkTitle";
 import Alert from "../components/Alert";
+import Error404 from "./Error404";
 
 ///////////////////// import firebase methods
 import auth from "../model/firebase";
@@ -19,7 +20,7 @@ import { main, aside, logout_btn } from "../styles/dashboard.module.scss";
 /*-------------------------------------------- Start of Main Component --------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------------------------*/
 export default function Dashboard() {
-  const { setLoggedIn, alert, setAlert } = useGlobalContext();
+  const { setIsLoggedIn, alert, setAlert } = useGlobalContext();
   const history = useHistory();
 
   ////////////////////////// Logout function
@@ -27,7 +28,7 @@ export default function Dashboard() {
     try {
       await auth.signOut();
       history.push(`/`);
-      setLoggedIn(false);
+      setIsLoggedIn(false);
     } catch {
       setAlert(`Can not logout currently, please try again`);
     }
@@ -74,21 +75,19 @@ export default function Dashboard() {
             <Route exact path="/dashboard">
               <ContactInfo title="Contact Information" />
             </Route>
-            <Route path="/dashboard/taxinfo">
+            <Route exact path="/dashboard/taxinfo">
               <TaxInfo title="Tax Information" />
             </Route>
-            <Route path="/dashboard/myTeams">
+            <Route exact path="/dashboard/myTeams">
               <MyTeams title="My Teams" />
             </Route>
-            <Route path="/dashboard/connectedServices">
+            <Route exact path="/dashboard/connectedServices">
               <ConnectedServices title="Connected Services" />
             </Route>
-            <Route path="/dashboard/deactivateAccount">
-              <DeactivateAccount
-                title="Deactivate Account"
-                setLoggedIn={setLoggedIn}
-              />
+            <Route exact path="/dashboard/deactivateAccount">
+              <DeactivateAccount title="Deactivate Account" />
             </Route>
+            <Route component={Error404} />
           </Switch>
         </section>
       </main>

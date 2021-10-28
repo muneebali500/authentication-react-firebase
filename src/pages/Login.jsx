@@ -4,7 +4,6 @@ import { Link, useHistory } from "react-router-dom";
 ////////////////////// import custom components
 import UpworkTitle from "../components/UpworkTitle";
 import Alert from "../components/Alert";
-import Loading from "../components/Loading";
 
 ///////////////////// import firebase methods
 import auth from "../model/firebase";
@@ -21,7 +20,7 @@ export default function Login() {
     alert,
     setAlert,
     handleInputChange,
-    setLoggedIn,
+    setIsLoggedIn,
     isLoading,
     setIsLoading,
   } = useGlobalContext();
@@ -41,6 +40,7 @@ export default function Login() {
         password
       );
       const user = await userCredential.user;
+      console.log(user);
 
       ///////////////////// check if the user email is verified or not
       if (!user.emailVerified) {
@@ -50,9 +50,9 @@ export default function Login() {
         );
       }
 
-      ///////////////////// if the user exists send the user to dashboard else alert an error message
+      ///////////////////// if the user exists send the user to dashboard
       if (user) {
-        setLoggedIn(true);
+        setIsLoggedIn(true);
         history.push(`/dashboard`);
       }
     } catch {
@@ -96,7 +96,7 @@ export default function Login() {
           </Link>
         </label>
 
-        <button>{isLoading ? <Loading /> : `login`}</button>
+        <button>{isLoading ? `Logging...` : `login`}</button>
         <p>
           Don't have an account.{" "}
           <Link to="/signup" style={{ textDecoration: "underline" }}>

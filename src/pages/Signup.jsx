@@ -3,7 +3,6 @@ import { Link, useHistory } from "react-router-dom";
 ////////////////////// import custom components
 import UpworkTitle from "../components/UpworkTitle";
 import Alert from "../components/Alert";
-import Loading from "../components/Loading";
 import { useGlobalContext } from "../store/GlobalContext";
 
 ///////////////////// import firebase methods
@@ -137,7 +136,7 @@ export default function Signup() {
           </div>
         </div>
 
-        <button>{isLoading ? <Loading /> : `Create My Account`} </button>
+        <button>{isLoading ? `Creating...` : `Create My Account`} </button>
 
         <p>
           Already have an account.{" "}

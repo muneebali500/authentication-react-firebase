@@ -1,7 +1,6 @@
 import { useHistory } from "react-router-dom";
 import { useGlobalContext } from "../../store/GlobalContext";
 import Alert from "../../components/Alert";
-import Loading from "../../components/Loading";
 
 ////////////////////// import firebase functions
 import auth from "../../model/firebase";
@@ -102,7 +101,7 @@ export default function ContactInfo({ title }) {
             defaultValue={auth.currentUser.email}
           />
           <button className="update_profile">
-            {isLoading ? <Loading /> : `Update Profile`}
+            {isLoading ? `Updating...` : `Update Profile`}
           </button>
         </form>
       </div>

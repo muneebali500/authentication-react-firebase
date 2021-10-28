@@ -87,10 +87,6 @@ The project was deployed to GitHub Pages following these steps:
 2. Just above the navigation menu of the repository (above the Settings button) locate the Fork button
 3. The original copy of the repository is now copied on your GitHub account which allows you to view and/or work on the codes without affecting the original work
 
-### Bug
-
-For a web application, the default behavior of Firebase is to persist a user's session even after the user closes the browser. This is convenient as the user is not required to continuously sign in every time the web page is visited on the same device. Unfortunately, this behavior is not working. I tried to change the persistence state to check if some other behavior works but to no heed. I am using online resources to find a solution and will fix it as soon as I got the formula.
-
 ### Credits
 
 Online textual and video tutorials for providing the understanding of the logic & philosophy behind user authentication and authorization. Also, Upwork for being the guide for my project UI.

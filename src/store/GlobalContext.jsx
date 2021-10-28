@@ -1,5 +1,10 @@
+import { onAuthStateChanged } from "@firebase/auth";
 import { useState, useContext, useEffect, createContext } from "react";
 
+/////////////// importing firebase methods
+import auth from "../model/firebase";
+
+/////////////// creating context
 const AuthContext = createContext();
 
 // Declaring & Defining initial values for user
@@ -12,11 +17,28 @@ const initialValues = {
 export default function AuthProvider({ children }) {
   const [inputValues, setInputValues] = useState(initialValues);
   const [alert, setAlert] = useState(``);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAccountDeactivated, setIsAccountDeactivated] = useState(false);
+  //// this loading is concerned with form submission: signup, login, reset password, update profile
   const [isLoading, setIsLoading] = useState(false);
+  //// this loading ic concerned with first time load or Refresh of a website
+  const [isInitialLoading, setIsInitialLoading] = useState(true);
 
-  // hook called and displays alert message for 5 seconds and unamounts
+  //////////////////// check if user is logged in and persist the local state of firebase. User doesn't have to login again after broweser is closed
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsLoggedIn(true);
+        setIsInitialLoading(false);
+      } else {
+        setIsInitialLoading(false);
+      }
+    });
+
+    return unsubscribe;
+  }, []);
+
+  ////////////////// hook called and displays alert message for 5 seconds and unamounts
   useEffect(() => {
     const timeOut = setTimeout(() => {
       setAlert(``);
@@ -27,7 +49,7 @@ export default function AuthProvider({ children }) {
     };
   }, [alert]);
 
-  // funtion to set input field values for sigup,login, and forgot-password forms
+  /////////////////// function to set input field values for sigup,login, and forgot-password forms
   function handleInputChange(e) {
     const { name, value } = e.target;
     setInputValues({ ...inputValues, [name]: value });
@@ -40,15 +62,15 @@ export default function AuthProvider({ children }) {
         alert,
         setAlert,
         handleInputChange,
-        loggedIn,
-        setLoggedIn,
+        isLoggedIn,
+        setIsLoggedIn,
         isLoading,
         setIsLoading,
         isAccountDeactivated,
         setIsAccountDeactivated,
       }}
     >
-      {children}
+      {!isInitialLoading && children}
     </AuthContext.Provider>
   );
 }

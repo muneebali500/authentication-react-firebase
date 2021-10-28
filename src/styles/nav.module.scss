@@ -162,6 +162,8 @@
 
     &:hover {
       outline: solid;
+      outline-offset: 1rem;
+      border-radius: 50%;
     }
   }
 

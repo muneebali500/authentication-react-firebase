@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 ////////////////////// import custom components
 import UpworkTitle from "../components/UpworkTitle";
 import Alert from "../components/Alert";
-import Loading from "../components/Loading";
 
 ///////////////////// import firebase methods
 import auth from "../model/firebase";
@@ -61,7 +60,7 @@ export default function ForgotPassword() {
           />
         </label>
 
-        <button>{isLoading ? <Loading /> : `Send Email`}</button>
+        <button>{isLoading ? `Sending...` : `Send Email`}</button>
         <p>
           Back to{" "}
           <Link to="/login" style={{ textDecoration: "underline" }}>
