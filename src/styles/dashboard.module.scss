@@ -1,0 +1,118 @@
+main {
+  height: 100vh;
+  display: flex;
+  margin: 0 10%;
+
+  @media only screen and (max-width: 56.25em) {
+    display: block;
+  }
+
+  @media only screen and (max-width: 34.375em) {
+    margin: 0 1rem;
+  }
+}
+
+aside {
+  width: 30%;
+  margin-right: 2rem;
+
+  @media only screen and (max-width: 56.25em) {
+    width: 100%;
+  }
+
+  figure {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+    margin-bottom: 3rem;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  nav {
+    font-size: 2rem;
+    list-style: none;
+    box-shadow: 0.3rem 0.3rem 0.4rem rgba(0, 0, 0, 0.1);
+
+    @media only screen and (max-width: 56.25em) {
+      display: flex;
+      margin-bottom: 2rem;
+      box-shadow: 0.3rem 0.3rem 0.4rem rgba(0, 0, 0, 0.1),
+        -0.3rem -0.3rem 0.4rem rgba(0, 0, 0, 0.1);
+    }
+
+    @media only screen and (max-width: 23.4375em) {
+      font-size: 1.4rem;
+    }
+
+    li {
+      box-shadow: 0 0.3rem 0.1rem rgba(0, 0, 0, 0.1),
+        -0.3rem 0 0.1rem rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      color: #14a800;
+    }
+  }
+}
+
+.logout_btn {
+  position: absolute;
+  top: 1.4rem;
+  right: 10vw;
+  font-size: 1.4rem;
+  background-color: #14a800;
+  color: #fff;
+  padding: 1.3rem 3rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 5rem;
+
+  @media only screen and (max-width: 56.25em) {
+    right: 10vw;
+  }
+
+  @media only screen and (max-width: 34.375em) {
+    right: 3vw;
+  }
+}
+
+section {
+  flex-grow: 1;
+}
+
+// generic styling for every nav title and nav details
+.page_title {
+  font-size: 2.5rem;
+  color: #14a800;
+  padding: 1.3rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.2),
+    -0.3rem -0.3rem 0.3rem rgba(0, 0, 0, 0.2);
+}
+
+.page_details {
+  box-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.2),
+    -0.3rem -0.3rem 0.3rem rgba(0, 0, 0, 0.2);
+  min-height: 50vh;
+  padding: 3rem;
+}
+
+// styling for deactivate button
+.deactivateBtn {
+  font-size: 1.5rem;
+  padding: 1.4rem 3rem;
+  color: #ffffff;
+  background-color: #14a800;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5rem;
+  margin-top: 1.5rem;
+  transition: 0.3s ease;
+
+  &:active {
+    transform: scale(0.7);
+  }
+}

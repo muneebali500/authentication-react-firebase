@@ -1,0 +1,90 @@
+$color-primary: #14a800;
+$text-secondary-color: rgba(0, 0, 0, 0.45);
+
+.hero {
+  display: flex;
+  align-items: center;
+  height: 88vh;
+  padding: 0 10%;
+
+  @media only screen and (max-width: 75em) {
+    width: 100%;
+    padding: 0 calc(10% - 3rem);
+  }
+
+  @media only screen and (max-width: 56.25em) {
+    padding: 0 1rem;
+  }
+
+  @media only screen and (max-width: 48em) {
+    height: 70vh;
+  }
+
+  &_text_container {
+    width: 60%;
+
+    @media only screen and (max-width: 48em) {
+      width: 100%;
+    }
+
+    h1 {
+      color: $color-primary;
+      font-size: 6.5rem;
+      margin-bottom: 1.2rem;
+
+      @media only screen and (max-width: 75em) {
+        font-size: 5.5rem;
+      }
+    }
+
+    p {
+      font-size: 2rem;
+      color: rgba(0, 0, 0, 0.5);
+      font-weight: 600;
+    }
+    button {
+      border-radius: 5rem;
+      border: 1px solid $color-primary;
+      padding: 1rem 3rem;
+      outline: none;
+      cursor: pointer;
+      background-color: $color-primary;
+      color: #fff;
+      margin-top: 3rem;
+      margin-bottom: 6rem;
+      pointer-events: none;
+
+      & + button {
+        background-color: transparent;
+        color: $color-primary;
+        margin-left: 1.5rem;
+      }
+    }
+
+    .clients_wrapper {
+      h2 {
+        color: $text-secondary-color;
+        margin-bottom: 1rem;
+      }
+      span {
+        font-size: 1.6rem;
+        margin-right: 2rem;
+        color: $text-secondary-color;
+
+        @media only screen and (max-width: 23.4375em) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  &_img_container {
+    img {
+      width: 43rem;
+    }
+
+    @media only screen and (max-width: 48em) {
+      display: none;
+    }
+  }
+}

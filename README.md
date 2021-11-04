@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# User Authentication and Authorization - React & Firebase (Upwork UI)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+This is a project about user authentication & authorization i.e; when the user visits a website, normally he is been prompted to register and login to use certain facilities that are not available to unauthenticated users. The project demonstrates the cycle from being signed up, verifying email, logging in, using the dashboard, updating the profile, resetting the password, logout, and deactivating the account. I have used Upwork UI to give this project a real-world feel.
 
-In the project directory, you can run:
+[Link to Live Project](https://userauthentication-49eec.web.app)
 
-### `npm start`
+![Upwork UI Home Page](/public/user-auth.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## User Experience (UX)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### User Stories
 
-### `npm test`
+As a user:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- I want to be provided clear & visible instructions for registering or logging in to the website.
+- I don't want to provide information that is very personal to me or about any of my personal relations.
+- I want to navigate easily from one page to another page.
+- I want to save my sensitive data into some secure database.
+- I want that no one should visit my profile page without my permission.
+- I want to update my profile at my will.
+- I don't want to log in, again and again, every time I visit the website.
+- I want to have clear info if the data takes time to load.
+- I want to have clear instructions of any errors and what should be done to overcome those errors.
+- I want to have a password reset facility in case I forgot my password.
+- I want the utility of logging out of my account at my will.
+- I want the utility of deactivating my account.
 
-### `npm run build`
+## User Interface (UI)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- There are 5 general pages and 5 user dashboard pages.
+- Home page has a Header, Hero Section, Clients section, and a Footer.
+- Header has a Logo, navigation items, search box, and two user auth buttons: Sign Up and Login. Only user auth buttons are active to navigate.
+- Hero section has two sides. The left side has some text content, buttons, and client list and the right side has an image. Buttons are not active.
+- Clients section has a background image and some text and links over it. Links are not active and they are just for interface purposes.
+- Footer has four categorized navigation items lists, social icon links, and copyright text. None of the links are active and are just for interface purposes.
+- Sign-up page has an Upwork title which is if clicked will push the user to the home page. The sign-up form has the fields of name, email, and password and also a button for creating an account.
+- Login page has a login form with email and password fields and a button for login. If clicked on the Upwork title, it will push the user to the home page.
+- Forgot password page has an email input field and a button to submit. If clicked on the Upwork title, it will push the user to the home page.
+- Dashboard page has a header, user navigations routes, and info related to the user account. Also, there is a Logout button for logout from the account.
+- User navigation pages include contact info, tax info, my teams, connected services, and deactivate account page.
+- Apart from the above pages mentioned there is also a 404error page that will be displayed if the user tries to navigate to an illegal route/path.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies Used
 
-### `npm run eject`
+### Languages, Frameworks, Libraries & Programs
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- [JSX](https://reactjs.org/docs/introducing-jsx.html) - build up layout and content of the application.
+- [cssmodules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/) - for adding custom styling.
+- [React.js](https://reactjs.org/) - to add functionalities throughout the application.
+  - Hooks used:
+    - useState
+    - useEffect
+    - useContext
+- [Firebase](https://firebase.google.com/) - for Database purposes.
+- [Visual Studio Code](https://code.visualstudio.com/) - the code editor being used to build the project.
+- [Chrome DevTools](https://developer.chrome.com/docs/devtools/) - used heavily for debugging during development process.
+- [Git](https://git-scm.com/) - the Git feature in VS Code was used for version control and push to github.
+- [Github](https://github.com/) - Github is used to store project's code remotely.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Development
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The project was developed using VS Code editor and its integrated version control feature to commit gits, which are then pushed to GitHub in order to store the codes remotely.
 
-## Learn More
+#### Firebase
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The project was deployed to Firebase.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Forking the repository
 
-### Code Splitting
+1. Log in to GitHub and navigate to this project's repository: [authentication-react-firebase](https://github.com/muneebali500/authentication-react-firebase)
+2. Just above the navigation menu of the repository (above the Settings button) locate the Fork button
+3. The original copy of the repository is now copied on your GitHub account which allows you to view and/or work on the codes without affecting the original work
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Credits
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Online textual and video tutorials for providing the understanding of the logic & philosophy behind user authentication and authorization. Also, Upwork for being the guide for my project UI.

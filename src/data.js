@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import { ImportContacts } from "@material-ui/icons";
 
 export const NavItems = [
@@ -24,10 +25,27 @@ export const NavItems = [
         title: `Enterprise Class`,
         narration: `Bitly scales to the size you need`,
       },
+=======
+export const footerNav = [
+  {
+    id: 1,
+    title: `For Clients`,
+    links: [
+      `How to Hire`,
+      `Talent Marketplace`,
+      `Project Catalog`,
+      `Talent Scout`,
+      `Enterprise`,
+      `Payroll Services`,
+      `Direct Contracts`,
+      `Hire Worldwide`,
+      `Hire in the USA`,
+>>>>>>> 41577c89619ab4544bafbfe2f5ebca78ac943c4a
     ],
   },
   {
     id: 2,
+<<<<<<< HEAD
     title: `Solutions`,
     value: `solutions`,
     dropDown: [
@@ -55,10 +73,19 @@ export const NavItems = [
         title: `For Developers`,
         narration: `Build links into any workflow`,
       },
+=======
+    title: `For Talent`,
+    links: [
+      `How to Find Work`,
+      `Direct Contracts`,
+      `Find Freelance Jobs Worldwide`,
+      `Find Freelance Jobs in the USA`,
+>>>>>>> 41577c89619ab4544bafbfe2f5ebca78ac943c4a
     ],
   },
   {
     id: 3,
+<<<<<<< HEAD
     title: `Features`,
     value: `features`,
     dropDown: [
@@ -146,10 +173,36 @@ export const NavItems = [
         icon: ``,
         title: `Careers`,
       },
+=======
+    title: `Resources`,
+    links: [
+      `Help & Support`,
+      `Upwork Reviews`,
+      `Resources`,
+      `Blog`,
+      `Community`,
+      `Affiliate Program`,
+    ],
+  },
+  {
+    id: 4,
+    title: `Company`,
+    links: [
+      `About Us`,
+      `Leadership`,
+      `Investor Relations`,
+      `Careers`,
+      `Upwork Foundation`,
+      `Press`,
+      `Contact Us`,
+      `Trust, Safety & Security`,
+      `UK Modern Slavery Statement`,
+>>>>>>> 41577c89619ab4544bafbfe2f5ebca78ac943c4a
     ],
   },
 ];
 
+<<<<<<< HEAD
 export const faqs = [
   {
     id: 1,
@@ -222,5 +275,27 @@ export const faqs = [
     your audience ignite action. That’s why the most recognized brands
     in the world love our platform.`,
     answerVisible: false,
+=======
+export const footerSocialLinks = [
+  {
+    id: 1,
+    website: "https://www.linkedin.com/",
+    icon: "fab fa-linkedin-in",
+  },
+  {
+    id: 2,
+    website: "https://www.facebook.com/",
+    icon: "fab fa-facebook-f",
+  },
+  {
+    id: 3,
+    website: "https://www.twiiter.com/",
+    icon: "fab fa-twitter",
+  },
+  {
+    id: 4,
+    website: "https://www.instagram.com/",
+    icon: "fab fa-instagram",
+>>>>>>> 41577c89619ab4544bafbfe2f5ebca78ac943c4a
   },
 ];

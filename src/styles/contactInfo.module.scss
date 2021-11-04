@@ -1,0 +1,51 @@
+.contact {
+  &_title {
+    font-size: 2.5rem;
+    color: #14a800;
+    padding: 1.3rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.2),
+      -0.3rem -0.3rem 0.3rem rgba(0, 0, 0, 0.2);
+  }
+
+  &_details {
+    box-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.2),
+      -0.3rem -0.3rem 0.3rem rgba(0, 0, 0, 0.2);
+    min-height: 50vh;
+    padding: 3rem;
+
+    form {
+      input {
+        display: block;
+        font-size: 1.8rem;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        width: 85%;
+        border-radius: 3px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        outline: none;
+      }
+
+      button {
+        font-size: 1.6rem;
+        padding: 1.3rem 0;
+        width: 17rem;
+        background-color: #14a800;
+        color: #fff;
+        outline: none;
+        border: none;
+        border-radius: 5rem;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+
+        &:active {
+          transform: scale(0.6);
+        }
+      }
+    }
+  }
+}
