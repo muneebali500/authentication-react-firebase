@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-import styled from "styled-components";
-import { largeScreen } from "../responsive";
-
-import { NavItems } from "../data";
-import NavItem from "./NavItem";
-
-export default function Navbar() {
-  return (
-    <Nav>
-      {NavItems.map((navItem) => {
-        return <NavItem {...navItem} key={navItem.id} />;
-      })}
-    </Nav>
-=======
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -123,14 +108,5 @@ export default function Navbar({ isLoggedIn }) {
         </Link>
       )}
     </nav>
->>>>>>> 41577c89619ab4544bafbfe2f5ebca78ac943c4a
   );
 }
-
-const Nav = styled.nav`
-  /* border: 1px solid; */
-  ${largeScreen({
-    display: `flex`,
-    alignItems: `center`,
-  })}
-`;
