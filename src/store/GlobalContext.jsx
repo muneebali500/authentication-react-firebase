@@ -1,52 +1,12 @@
-<<<<<<< HEAD
-import { useState, useContext, useEffect, createContext } from "react";
-
-import { faqs } from "../data";
-=======
 import { onAuthStateChanged } from "@firebase/auth";
 import { useState, useContext, useEffect, createContext } from "react";
 
 /////////////// importing firebase methods
 import auth from "../model/firebase";
->>>>>>> 41577c89619ab4544bafbfe2f5ebca78ac943c4a
 
 /////////////// creating context
 const AuthContext = createContext();
 
-<<<<<<< HEAD
-export default function AuthProvider({ children }) {
-  const [isNavBarOpen, setIsNavBarOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [newFaqs, setNewFaqs] = useState(faqs);
-
-  function toggleFaqAnswer(id) {
-    setNewFaqs(
-      newFaqs.map((faq) =>
-        faq.id === Number(id)
-          ? { ...faq, answerVisible: faq.answerVisible ? false : true }
-          : { ...faq, answerVisible: false }
-      )
-    );
-  }
-
-  useEffect(() => {
-    console.log(`useeffect called`);
-
-    setIsLoading(true);
-    window.innerWidth > 1024 ? setIsNavBarOpen(true) : setIsNavBarOpen(false);
-  }, []);
-
-  return (
-    <AuthContext.Provider
-      value={{
-        isNavBarOpen,
-        setIsNavBarOpen,
-        newFaqs,
-        toggleFaqAnswer,
-      }}
-    >
-      {isLoading && children}
-=======
 // Declaring & Defining initial values for user
 const initialValues = {
   fullName: ``,
@@ -111,7 +71,6 @@ export default function AuthProvider({ children }) {
       }}
     >
       {!isInitialLoading && children}
->>>>>>> 41577c89619ab4544bafbfe2f5ebca78ac943c4a
     </AuthContext.Provider>
   );
 }
