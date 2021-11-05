@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import Home from "./pages/Home";
-import GoLink from "./pages/GoLink";
-
-import { Switch, Route } from "react-router-dom";
-=======
 import { useGlobalContext } from "./store/GlobalContext";
 
 import Home from "./pages/Home";
@@ -18,16 +12,10 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 function App() {
   const { isLoggedIn, isAccountDeactivated } = useGlobalContext();
->>>>>>> 41577c89619ab4544bafbfe2f5ebca78ac943c4a
 
-export default function App() {
   return (
     <>
       <Switch>
-<<<<<<< HEAD
-        <Route exact path="/" component={Home} />
-        <Route path="/:uid" component={GoLink} />
-=======
         <Route exact path="/" component={Home}></Route>
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login}></Route>
@@ -39,8 +27,9 @@ export default function App() {
           {isAccountDeactivated ? <Deactivate /> : <Redirect to="/" />}
         </Route>
         <Route component={Error404} />
->>>>>>> 41577c89619ab4544bafbfe2f5ebca78ac943c4a
       </Switch>
     </>
   );
 }
+
+export default App;
