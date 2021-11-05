@@ -55,7 +55,7 @@ As a user:
     - useState
     - useEffect
     - useContext
-- [Firebase](https://firebase.google.com/) - for Database purposes and also for Deploying the project.
+- [Firebase](https://firebase.google.com/) - for Database purposes.
 - [Visual Studio Code](https://code.visualstudio.com/) - the code editor being used to build the project.
 - [Chrome DevTools](https://developer.chrome.com/docs/devtools/) - used heavily for debugging during development process.
 - [Git](https://git-scm.com/) - the Git feature in VS Code was used for version control and push to github.
@@ -67,19 +67,9 @@ As a user:
 
 The project was developed using VS Code editor and its integrated version control feature to commit gits, which are then pushed to GitHub in order to store the codes remotely.
 
-#### GitHub Pages
+#### Firebase
 
-The project was deployed to GitHub Pages following these steps:
-
-1. On the navbar, hit the plus button, the drop-down option will appear. Select the "new repository" option
-2. On the "create a new repository" page, enter repository name in the "Repository name" box and hit the "Create repository" button at the end
-3. Create a new repository on the command line/VS code terminal in the root of the project folder using the following command lines.
-   - git init
-   - git add .
-   - git commit -m "write your comment here within quotes"
-   - git branch -M main
-   - git remote add origin {enter URL of your repository here without brackets}
-   - git push -u origin main
+The project was deployed to Firebase.
 
 #### Forking the repository
 
