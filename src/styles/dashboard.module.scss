@@ -43,7 +43,7 @@ aside {
         -0.3rem -0.3rem 0.4rem rgba(0, 0, 0, 0.1);
     }
 
-    @media only screen and (max-width: 23.4375em) {
+    @media only screen and (max-width: 30em) {
       font-size: 1.4rem;
     }
 
@@ -52,6 +52,10 @@ aside {
         -0.3rem 0 0.1rem rgba(0, 0, 0, 0.1);
       padding: 1.5rem;
       color: #14a800;
+
+      @media only screen and (max-width: 23em) {
+        padding: 1.5rem 1rem;
+      }
     }
   }
 }

@@ -1,3 +1,4 @@
+import React from "react";
 ////////////// import custom styling
 import {
   hero,

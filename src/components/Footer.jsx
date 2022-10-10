@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
   footer,
   footer_nav,
@@ -32,7 +34,7 @@ export default function Footer() {
                 key={link.id}
                 href={link.website}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 <i className={link.icon}></i>
               </a>
@@ -43,10 +45,18 @@ export default function Footer() {
         <ul className="mobile-app">
           <li>Mobile App</li>
           <li>
-            <a href="https://www.apple.com/" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.apple.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i className="fab fa-apple"></i>
             </a>
-            <a href="https://www.android.com/" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.android.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i className="fab fa-android"></i>
             </a>
           </li>

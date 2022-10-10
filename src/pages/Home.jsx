@@ -1,3 +1,4 @@
+import React from "react";
 import { useGlobalContext } from "../store/GlobalContext";
 
 import Navbar from "../components/Navbar";

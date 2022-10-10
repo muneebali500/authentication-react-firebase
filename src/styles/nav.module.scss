@@ -1,5 +1,5 @@
 .nav {
-  height: 12vh;
+  height: 8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,7 +11,7 @@
   }
 
   @media only screen and (max-width: 56.25em) {
-    margin: 0 1rem;
+    margin: 0 2%;
   }
 
   .logo {
@@ -19,7 +19,7 @@
     font-size: 3rem;
 
     @media only screen and (max-width: 56.25em) {
-      padding: 4rem;
+      padding-left: 4rem;
     }
   }
 
@@ -75,6 +75,10 @@
 
     @media only screen and (max-width: 75em) {
       display: inline-block;
+    }
+
+    @media only screen and (max-width: 21em) {
+      margin-right: 1rem;
     }
   }
 
@@ -174,6 +178,10 @@
     border-radius: 5rem;
     color: #fff;
     margin-left: 2.5rem;
+
+    @media only screen and (max-width: 21em) {
+      margin-left: 1rem;
+    }
 
     &:hover {
       background-color: #127505;

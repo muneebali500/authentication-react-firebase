@@ -1,3 +1,5 @@
+import React from "react";
+
 import { clients, container, links, link } from "../styles/clients.module.scss";
 
 export default function Clients() {

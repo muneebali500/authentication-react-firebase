@@ -1,3 +1,5 @@
+import React from "react";
+
 import { useGlobalContext } from "../store/GlobalContext";
 import { Switch, Route, Link, useHistory } from "react-router-dom";
 

@@ -1,3 +1,5 @@
+import React from "react";
+
 import { page_title, page_details } from "../../styles/dashboard.module.scss";
 
 export default function MyTeams({ title }) {
