@@ -38,6 +38,7 @@
       height: 100vh;
       z-index: 100;
       padding-top: 1%;
+      display: none;
     }
   }
 
@@ -89,6 +90,7 @@
       position: absolute;
       top: 7.6rem;
       right: 23%;
+      display: none;
     }
 
     input {

@@ -42,7 +42,6 @@ export default function Login() {
         password
       );
       const user = await userCredential.user;
-      console.log(user);
 
       ///////////////////// check if the user email is verified or not
       if (!user.emailVerified) {
