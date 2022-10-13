@@ -29,6 +29,11 @@ export default function Navbar({ isLoggedIn }) {
   const [showNav, setShowNav] = useState(true);
 
   useEffect(() => {
+    window.innerWidth >= 900 ? setShowNav(true) : setShowNav(false);
+    window.innerWidth >= 1200 ? setSearchBox(true) : setSearchBox(false);
+  }, []);
+
+  useEffect(() => {
     function windowResize() {
       window.innerWidth >= 900 ? setShowNav(true) : setShowNav(false);
       window.innerWidth >= 1200 ? setSearchBox(true) : setSearchBox(false);

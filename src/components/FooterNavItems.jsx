@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   nav_btn,
@@ -7,7 +7,27 @@ import {
 } from "../styles/footer.module.scss";
 
 export default function FooterNavItems({ title, links }) {
-  const [footerNavLinks, setfooterNavLinks] = useState(false);
+  const [footerNavLinks, setfooterNavLinks] = useState(true);
+
+  useEffect(() => {
+    window.innerWidth >= 768
+      ? setfooterNavLinks(true)
+      : setfooterNavLinks(false);
+  }, []);
+
+  useEffect(() => {
+    function displayOrHideFooterLinks() {
+      window.innerWidth >= 768
+        ? setfooterNavLinks(true)
+        : setfooterNavLinks(false);
+    }
+
+    window.addEventListener(`resize`, displayOrHideFooterLinks);
+
+    return () => {
+      window.removeEventListener(`resize`, displayOrHideFooterLinks);
+    };
+  });
 
   return (
     <div className={nav_items}>
@@ -22,17 +42,15 @@ export default function FooterNavItems({ title, links }) {
       </h3>
 
       {/*/////////// the footer nav items shall display if window width >= '768px' on large screens OR if the user cliked on footer nav button on small screens */}
-      {(window.innerWidth >= 768 || footerNavLinks) && (
-        <ul>
-          {links.map((link, index) => {
-            return (
-              <li key={index}>
-                <a href="/">{link}</a>
-              </li>
-            );
-          })}
-        </ul>
-      )}
+      <ul style={{ display: `${footerNavLinks ? "block" : "none"}` }}>
+        {links.map((link, index) => {
+          return (
+            <li key={index}>
+              <a href="/">{link}</a>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
